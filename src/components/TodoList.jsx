@@ -1,8 +1,6 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-
 export const TodoList = ({ todoItems, setTodoItems }) => {
 	const [parent] = useAutoAnimate()
-
 	const checkBoxHandler = (e, todoItemMap) => {
 		const changeChecked = todoItems.map((todo) => {
 			if (todo.id === todoItemMap.id) {

@@ -14,9 +14,11 @@ export const Input = ({ setTodo, setTodoItems, todo }) => {
 
 	return (
 		<form onSubmit={addTodoHandler}>
+			<label htmlFor='todo'></label>
 			<input
 				type='text'
 				value={todo}
+				name='todo'
 				onChange={(e) => setTodo(e.target.value)}
 			/>
 		</form>
