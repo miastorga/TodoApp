@@ -7,9 +7,16 @@ function App() {
 	const [todoItems, setTodoItems] = useState([])
 	return (
 		<div className='container'>
-			<h1>Todo List</h1>
-			<Input todo={todo} setTodo={setTodo} setTodoItems={setTodoItems} />
-			<TodoList todoItems={todoItems} setTodoItems={setTodoItems} />
+			<main>
+				<h1>Todo List</h1>
+				<Input
+					todo={todo}
+					setTodo={setTodo}
+					setTodoItems={setTodoItems}
+					todoItems={todoItems}
+				/>
+				<TodoList todoItems={todoItems} setTodoItems={setTodoItems} />
+			</main>
 		</div>
 	)
 }
