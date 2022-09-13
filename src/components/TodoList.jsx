@@ -40,14 +40,13 @@ export const TodoList = ({ todoItems, setTodoItems, setTodo }) => {
 								{todo.title}
 							</p>
 							<div>
-								<IconContext.Provider
-									value={{ size: '30px', className: 'remove' }}>
+								<IconContext.Provider value={{ size: '30px' }}>
 									<button
 										className='remove'
 										onClick={() => removeHandler(todo)}>
 										<TiDeleteOutline />
 									</button>
-									<button className='remove' onClick={() => editHandler(todo)}>
+									<button className='edit' onClick={() => editHandler(todo)}>
 										<MdDriveFileRenameOutline />
 									</button>
 								</IconContext.Provider>
@@ -68,8 +67,8 @@ export const TodoList = ({ todoItems, setTodoItems, setTodo }) => {
 						</p>
 						<div>
 							<p>all</p>
-							<p>activos</p>
-							<p>completados</p>
+							<p>actives</p>
+							<p>completed</p>
 						</div>
 					</>
 				)}
