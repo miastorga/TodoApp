@@ -6,7 +6,7 @@ Una simple lista de que haceres/tareas donde el usuario escribe las cosas que qu
 - [x] El usuario puede marcar una tarea como completada.
 - [x] El usuario puede remover una tarea clickeando un boton o en la tarea.
 
-## EXTRAS
+## Extras
 - [ ] El usuario puede modificar una tarea.
 - [ ] El usuario puede ver una lista con todas las tareas realizadas.
 - [ ] El usuario puede ver una lista con todas las tareas activas.

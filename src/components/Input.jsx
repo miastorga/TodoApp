@@ -6,7 +6,6 @@ export const Input = ({ setTodo, setTodoItems, todo, todoItems }) => {
 
 	const addTodoHandler = (e) => {
 		e.preventDefault()
-		console.log(todo)
 		setTodoItems((prevTodo) => [
 			...prevTodo,
 			{

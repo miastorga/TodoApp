@@ -15,7 +15,11 @@ function App() {
 					setTodoItems={setTodoItems}
 					todoItems={todoItems}
 				/>
-				<TodoList todoItems={todoItems} setTodoItems={setTodoItems} />
+				<TodoList
+					todoItems={todoItems}
+					setTodoItems={setTodoItems}
+					setTodo={setTodo}
+				/>
 			</main>
 		</div>
 	)
