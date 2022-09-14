@@ -1,9 +1,14 @@
 import React from 'react'
+import { useContext } from 'react'
+import { Context } from '../TodoContext'
 
-export const Input = ({ setTodo, setTodoItems, todo, todoItems }) => {
+export const Input = () => {
+	const { todo, setTodo, setTodoItems } = useContext(Context)
+
+	const context = useContext(Context)
 	const randomId = Math.random()
 	const date = new Date()
-
+	console.log(context)
 	const addTodoHandler = (e) => {
 		e.preventDefault()
 		setTodoItems((prevTodo) => [
@@ -15,7 +20,6 @@ export const Input = ({ setTodo, setTodoItems, todo, todoItems }) => {
 				dateCreated: date.getDate() + '/' + (date.getMonth() + 1),
 			},
 		])
-		// *todo: Agregar todo al localstorage
 		setTodo('')
 	}
 	return (
