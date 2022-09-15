@@ -11,5 +11,6 @@ Una simple lista de que haceres/tareas donde el usuario escribe las cosas que qu
 - [ ] El usuario puede ver una lista con todas las tareas realizadas.
 - [ ] El usuario puede ver una lista con todas las tareas activas.
 - [x] El usuario puede ver la fecha de creacion de las tareas.
-- [ ] Cuando se cierra la ventana las tareas seran almacenadas(Local Storage) y cuando el usuario regrese la informacion sera recuperada.
+- [x] Cuando se cierra la ventana las tareas seran almacenadas(Local Storage)
+- [ ] Cuando el usuario regrese la informacion sera recuperada. del Local Storage. 
 - [ ] El usuario puede agregar tareas a favoritos.

@@ -1,6 +1,3 @@
-import React from 'react'
-
-import { useContext } from 'react'
 import { Button } from './Button'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { MdDriveFileRenameOutline } from 'react-icons/md'
@@ -14,8 +11,8 @@ export const Todo = ({ todo, todoItems, setTodoItems }) => {
 			return todo
 		})
 		setTodoItems(changeChecked)
+		localStorage.setItem('todos', JSON.stringify(todoItems))
 	}
-
 	const removeHandler = (todoItem) =>
 		setTodoItems(todoItems.filter((todo) => todo.id !== todoItem.id))
 
@@ -24,7 +21,7 @@ export const Todo = ({ todo, todoItems, setTodoItems }) => {
 		console.log(todoItem)
 	}
 	return (
-		<li>
+		<li className='li-item'>
 			<span id='date-created'>{todo.dateCreated}</span>
 			<div className='li-content'>
 				<input

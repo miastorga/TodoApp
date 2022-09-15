@@ -8,6 +8,9 @@
 * {
 	font-family: 'Inter', sans-serif;
 }
+li {
+	list-style: none;
+}
 html {
 	background-color: #1e1e1e;
 	color: #f8f8f8;
@@ -102,7 +105,7 @@ button {
 	margin-right: 15px;
 	color: var(--gray);
 }
-li {
+.li-item {
 	background-color: var(--dark);
 	border: 1px solid var(--dark-shadow);
 	width: 34rem;

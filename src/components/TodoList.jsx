@@ -10,16 +10,15 @@ export const TodoList = () => {
 	return (
 		<>
 			<ul ref={parent}>
-				<ListHeader todoItems={todoItems} />
-				{todoItems &&
-					todoItems.map((todo) => (
-						<Todo
-							key={todo.id}
-							todo={todo}
-							todoItems={todoItems}
-							setTodoItems={setTodoItems}
-						/>
-					))}
+				<ListHeader />
+				{todoItems.map((todo) => (
+					<Todo
+						key={todo.id}
+						todo={todo}
+						todoItems={todoItems}
+						setTodoItems={setTodoItems}
+					/>
+				))}
 			</ul>
 		</>
 	)
