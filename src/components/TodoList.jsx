@@ -1,12 +1,13 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { useEffect } from 'react'
 import { useContext } from 'react'
 import { Context } from '../TodoContext'
 import { ListHeader } from './ListHeader'
 import { Todo } from './Todo'
 export const TodoList = () => {
 	const [parent] = useAutoAnimate()
-
-	const { todoItems, setTodoItems } = useContext(Context)
+	const { setTodo, todoItems, setTodoItems, localStorageTodos } =
+		useContext(Context)
 	return (
 		<>
 			<ul ref={parent}>
@@ -17,6 +18,7 @@ export const TodoList = () => {
 						todo={todo}
 						todoItems={todoItems}
 						setTodoItems={setTodoItems}
+						setTodo={setTodo}
 					/>
 				))}
 			</ul>

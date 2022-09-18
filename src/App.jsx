@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './app.css'
 import { Input } from './components/Input'
 import { TodoList } from './components/TodoList'

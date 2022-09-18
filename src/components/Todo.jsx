@@ -1,24 +1,36 @@
 import { Button } from './Button'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { MdDriveFileRenameOutline } from 'react-icons/md'
+import { AiOutlineCheck } from 'react-icons/ai'
+import { RiArrowGoBackLine } from 'react-icons/ri'
+import { useState } from 'react'
 export const Todo = ({ todo, todoItems, setTodoItems }) => {
-	const checkBoxHandler = (e, todoItem) => {
+	const [todoEditing, setTodoEditing] = useState(null)
+	const [editingText, setEditingText] = useState('')
+	const checkBoxHandler = (todoId) => {
 		const changeChecked = todoItems.map((todo) => {
-			if (todo.id === todoItem.id) {
-				const isCompleted = e.target.checked
-				return { ...todo, isCompleted }
+			if (todo.id === todoId) {
+				todo.isCompleted = !todo.isCompleted
 			}
 			return todo
 		})
 		setTodoItems(changeChecked)
 		localStorage.setItem('todos', JSON.stringify(todoItems))
 	}
-	const removeHandler = (todoItem) =>
-		setTodoItems(todoItems.filter((todo) => todo.id !== todoItem.id))
+	const removeHandler = (todoId) =>
+		setTodoItems(todoItems.filter((todo) => todo.id !== todoId))
 
 	const editHandler = (todoItem) => {
-		setTodo()
-		console.log(todoItem)
+		const todoTitle = todoItem.title
+		if (todoTitle.length !== 0) {
+			const editedTodo = todoItems.map((todo) => {
+				if (todo.id === todoItem.id) todo.title = editingText
+				return todo
+			})
+			setTodoItems(editedTodo)
+			setTodoEditing(null)
+			setEditingText('')
+		}
 	}
 	return (
 		<li className='li-item'>
@@ -27,16 +39,44 @@ export const Todo = ({ todo, todoItems, setTodoItems }) => {
 				<input
 					value={todo.title}
 					type='checkbox'
-					onChange={(e) => checkBoxHandler(e, todo)}
+					onChange={() => checkBoxHandler(todo.id)}
 				/>
-				<p className={todo.isCompleted ? 'completed' : ''}>{todo.title}</p>
+				{todoEditing === todo.id ? (
+					<input
+						className='input-edit '
+						type='text'
+						autoFocus={true}
+						onChange={(e) => setEditingText(e.target.value)}
+						value={editingText}
+					/>
+				) : (
+					<p className={todo.isCompleted ? 'completed' : ''}>{todo.title}</p>
+				)}
+
 				<div>
-					<Button className={'remove'} onCLick={() => removeHandler(todo)}>
-						<TiDeleteOutline />
-					</Button>
-					<Button className={'edit'} onCLick={() => editHandler(todo)}>
-						<MdDriveFileRenameOutline />
-					</Button>
+					{todoEditing === todo.id ? (
+						<>
+							<button onClick={() => setTodoEditing(null)} className={'remove'}>
+								<RiArrowGoBackLine />
+							</button>
+							<button className={'edit'} onClick={() => editHandler(todo)}>
+								<AiOutlineCheck />
+							</button>
+						</>
+					) : (
+						<>
+							<Button
+								className={'remove'}
+								onCLick={() => removeHandler(todo.id)}>
+								<TiDeleteOutline />
+							</Button>
+							<Button
+								className={'edit'}
+								onCLick={() => setTodoEditing(todo.id)}>
+								<MdDriveFileRenameOutline />
+							</Button>
+						</>
+					)}
 				</div>
 			</div>
 		</li>

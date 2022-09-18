@@ -7,10 +7,9 @@ Una simple lista de que haceres/tareas donde el usuario escribe las cosas que qu
 - [x] El usuario puede remover una tarea clickeando un boton o en la tarea.
 
 ## Extras
-- [ ] El usuario puede modificar una tarea.
+- [x] El usuario puede modificar una tarea.
 - [ ] El usuario puede ver una lista con todas las tareas realizadas.
 - [ ] El usuario puede ver una lista con todas las tareas activas.
 - [x] El usuario puede ver la fecha de creacion de las tareas.
 - [x] Cuando se cierra la ventana las tareas seran almacenadas(Local Storage)
 - [ ] Cuando el usuario regrese la informacion sera recuperada. del Local Storage. 
-- [ ] El usuario puede agregar tareas a favoritos.

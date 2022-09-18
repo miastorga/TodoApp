@@ -26,6 +26,11 @@ h1 {
 	color: var(--primary);
 	margin: 10px;
 }
+input:focus {
+	outline: none;
+	border: 2px solid var(--primary);
+	box-shadow: 0 0 10px var(--primary-shadow);
+}
 .li-content {
 	font-size: 22px;
 	list-style: none;
@@ -36,7 +41,7 @@ h1 {
 	width: 100%;
 	height: 4rem;
 }
-input[type='text'] {
+#todo {
 	width: 100%;
 	padding: 0.5rem;
 	font-size: 26px;
@@ -50,11 +55,7 @@ main {
 	width: 34rem;
 	text-align: center;
 }
-input[type='text']:focus {
-	outline: none;
-	border: 2px solid var(--primary);
-	box-shadow: 0 0 10px var(--primary-shadow);
-}
+
 .completed {
 	text-decoration: line-through;
 	color: var(--gray);
@@ -76,6 +77,9 @@ input[type='text']:focus {
 }
 .edit:hover {
 	color: rgb(255, 165, 0);
+}
+.saved {
+	color: rgb(24, 177, 24);
 }
 button {
 	background-color: transparent;
@@ -112,5 +116,11 @@ button {
 	display: flex;
 	align-items: center;
 	padding: 0px 10px;
+	border-radius: 5px;
+}
+.input-edit {
+	width: 70%;
+	font-size: 18px;
+	padding: 7px;
 	border-radius: 5px;
 }
