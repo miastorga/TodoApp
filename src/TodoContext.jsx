@@ -6,8 +6,9 @@ export const Context = createContext()
 
 export const TodoProvider = ({ children }) => {
 	const [todo, setTodo] = useState('')
-	const [todoItems, setTodoItems] = useState([])
-	const localStorageTodos = JSON.parse(localStorage.getItem('todos'))
+	const [todoItems, setTodoItems] = useState(
+		JSON.parse(localStorage.getItem('todos')) || []
+	)
 
 	return (
 		<Context.Provider
@@ -16,7 +17,6 @@ export const TodoProvider = ({ children }) => {
 				setTodo,
 				todoItems,
 				setTodoItems,
-				localStorageTodos,
 			}}>
 			{children}
 		</Context.Provider>

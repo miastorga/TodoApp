@@ -5,6 +5,9 @@ import { Context } from '../TodoContext'
 
 export const Input = () => {
 	const { todo, setTodo, setTodoItems, todoItems } = useContext(Context)
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todoItems))
+	}, [todoItems])
 	const randomId = Math.random()
 	const date = new Date()
 	const addTodoHandler = (e) => {
@@ -23,9 +26,7 @@ export const Input = () => {
 		])
 		setTodo('')
 	}
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todoItems))
-	}, [todoItems])
+
 	return (
 		<form onSubmit={addTodoHandler}>
 			<label htmlFor='todo'></label>

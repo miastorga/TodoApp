@@ -7,6 +7,7 @@ import { useState } from 'react'
 export const Todo = ({ todo, todoItems, setTodoItems }) => {
 	const [todoEditing, setTodoEditing] = useState(null)
 	const [editingText, setEditingText] = useState('')
+
 	const checkBoxHandler = (todoId) => {
 		const changeChecked = todoItems.map((todo) => {
 			if (todo.id === todoId) {
@@ -15,8 +16,8 @@ export const Todo = ({ todo, todoItems, setTodoItems }) => {
 			return todo
 		})
 		setTodoItems(changeChecked)
-		localStorage.setItem('todos', JSON.stringify(todoItems))
 	}
+
 	const removeHandler = (todoId) =>
 		setTodoItems(todoItems.filter((todo) => todo.id !== todoId))
 
