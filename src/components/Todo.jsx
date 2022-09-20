@@ -4,7 +4,10 @@ import { MdDriveFileRenameOutline } from 'react-icons/md'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { useState } from 'react'
-export const Todo = ({ todo, todoItems, setTodoItems }) => {
+import { useContext } from 'react'
+import { Context } from '../TodoContext'
+export const Todo = ({ todo }) => {
+	const { setTodoItems, todoItems } = useContext(Context)
 	const [todoEditing, setTodoEditing] = useState(null)
 	const [editingText, setEditingText] = useState('')
 
@@ -17,7 +20,6 @@ export const Todo = ({ todo, todoItems, setTodoItems }) => {
 		})
 		setTodoItems(changeChecked)
 	}
-
 	const removeHandler = (todoId) =>
 		setTodoItems(todoItems.filter((todo) => todo.id !== todoId))
 

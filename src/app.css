@@ -53,6 +53,10 @@ input[type='checkbox'] {
 }
 main {
 	width: 34rem;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
+	/* min-width: 100%; */
 	text-align: center;
 }
 
@@ -86,6 +90,9 @@ button {
 	cursor: pointer;
 	border: none;
 	font-size: 30px;
+}
+a {
+	cursor: pointer;
 }
 .list-header {
 	display: flex;

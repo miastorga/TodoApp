@@ -16,11 +16,6 @@ export const ListHeader = () => {
 								<>{todoItems.length} items</>
 							)}
 						</p>
-						<div>
-							<p>all</p>
-							<p>actives</p>
-							<p>completed</p>
-						</div>
 					</>
 				)}
 			</div>

@@ -8,8 +8,6 @@ Una simple lista de que haceres/tareas donde el usuario escribe las cosas que qu
 
 ## Extras
 - [x] El usuario puede modificar una tarea.
-- [ ] El usuario puede ver una lista con todas las tareas realizadas.
-- [ ] El usuario puede ver una lista con todas las tareas activas.
 - [x] El usuario puede ver la fecha de creacion de las tareas.
 - [x] Cuando se cierra la ventana las tareas seran almacenadas(Local Storage)
 - [x] Cuando el usuario regrese la informacion sera recuperada. del Local Storage. 
