@@ -6,7 +6,9 @@ export const Context = createContext()
 export const TodoProvider = ({ children }) => {
 	const [todo, setTodo] = useState('')
 	const [todoItems, setTodoItems] = useState(
-		JSON.parse(localStorage.getItem('todos')) || []
+		JSON.parse(localStorage.getItem('todos')) || [
+			{ id: 0, title: '', isCompleted: false, dateCreated: 0 },
+		]
 	)
 
 	return (

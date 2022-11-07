@@ -5,15 +5,14 @@ import { ListHeader } from './ListHeader'
 import { Todo } from './Todo'
 export const TodoList = () => {
 	const [parent] = useAutoAnimate()
-
 	const { todoItems, setTodoItems } = useContext(Context)
+
 	useEffect(() => {
 		const storageData = localStorage.getItem('todos')
 		const data = JSON.parse(storageData)
-		if (data) {
-			setTodoItems(data)
-		}
+		if (data) setTodoItems(data)
 	}, [])
+
 	return (
 		<ul ref={parent}>
 			<ListHeader />

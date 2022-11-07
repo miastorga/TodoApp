@@ -3,25 +3,14 @@ import { TiDeleteOutline } from 'react-icons/ti'
 import { MdDriveFileRenameOutline } from 'react-icons/md'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { RiArrowGoBackLine } from 'react-icons/ri'
-import { useState } from 'react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import { useTodo } from '../hooks/useTodo'
 import { Context } from '../TodoContext'
 export const Todo = ({ todo }) => {
 	const { setTodoItems, todoItems } = useContext(Context)
 	const [todoEditing, setTodoEditing] = useState(null)
 	const [editingText, setEditingText] = useState('')
-
-	const checkBoxHandler = (todoId) => {
-		const changeChecked = todoItems.map((todo) => {
-			if (todo.id === todoId) {
-				todo.isCompleted = !todo.isCompleted
-			}
-			return todo
-		})
-		setTodoItems(changeChecked)
-	}
-	const removeHandler = (todoId) =>
-		setTodoItems(todoItems.filter((todo) => todo.id !== todoId))
+	const { removeHandler, checkBoxHandler } = useTodo()
 
 	const editHandler = (todoItem) => {
 		const todoTitle = todoItem.title
@@ -42,11 +31,11 @@ export const Todo = ({ todo }) => {
 				<input
 					value={todo.title}
 					type='checkbox'
-					onChange={() => checkBoxHandler(todo.id)}
+					onChange={(e) => checkBoxHandler(e, todo.id)}
 				/>
 				{todoEditing === todo.id ? (
 					<input
-						className='input-edit '
+						className='input-edit'
 						type='text'
 						autoFocus={true}
 						onChange={(e) => setEditingText(e.target.value)}
