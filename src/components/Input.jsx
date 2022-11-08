@@ -1,30 +1,17 @@
 import React from 'react'
 import { useEffect, useContext } from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
+import { useTodo } from '../hooks/useTodo'
 import { Context } from '../TodoContext'
 
 export const Input = () => {
-	const { todo, setTodo, setTodoItems, todoItems } = useContext(Context)
+	const { todo, setTodo, todoItems } = useContext(Context)
+	const { addTodoHandler } = useTodo()
+	const [storedValue, setValue] = useLocalStorage('todos', [])
+
 	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todoItems))
+		setValue(todoItems)
 	}, [todoItems])
-	const randomId = Math.random()
-	const date = new Date()
-	const addTodoHandler = (e) => {
-		e.preventDefault()
-
-		if (todo.trim().length === 0) return null
-
-		setTodoItems((prevTodo) => [
-			...prevTodo,
-			{
-				id: randomId,
-				title: todo.trim(),
-				isCompleted: false,
-				dateCreated: date.getDate() + '/' + (date.getMonth() + 1),
-			},
-		])
-		setTodo('')
-	}
 
 	return (
 		<form onSubmit={addTodoHandler}>

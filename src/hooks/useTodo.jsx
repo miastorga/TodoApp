@@ -2,7 +2,30 @@ import { useContext, useState } from 'react'
 import { Context } from '../TodoContext'
 
 export const useTodo = () => {
-	const { setTodoItems, todoItems } = useContext(Context)
+	const randomId = Math.random()
+	const date = new Date()
+	const DAY_AND_MONTH = date.getDate() + '/' + (date.getMonth() + 1)
+
+	const { setTodoItems, todoItems, todo, setTodo } = useContext(Context)
+	const [todoEditing, setTodoEditing] = useState(null)
+	const [editingText, setEditingText] = useState('')
+
+	const addTodoHandler = (e) => {
+		e.preventDefault()
+
+		if (todo.trim().length === 0) return null
+
+		setTodoItems((prevTodo) => [
+			...prevTodo,
+			{
+				id: randomId,
+				title: todo.trim(),
+				isCompleted: false,
+				dateCreated: DAY_AND_MONTH,
+			},
+		])
+		setTodo('')
+	}
 
 	const removeHandler = (todoId) => {
 		setTodoItems(todoItems.filter((todo) => todo.id !== todoId))
@@ -36,5 +59,10 @@ export const useTodo = () => {
 		removeHandler,
 		checkBoxHandler,
 		editHandler,
+		todoEditing,
+		editingText,
+		setTodoEditing,
+		setEditingText,
+		addTodoHandler,
 	}
 }
