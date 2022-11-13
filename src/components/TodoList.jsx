@@ -1,17 +1,11 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { useContext, useEffect } from 'react'
-import { useLocalStorage } from '../hooks/useLocalStorage'
-import { Context } from '../TodoContext'
+import { useContext } from 'react'
+import { Context } from '/src/context/TodoContext'
 import { ListHeader } from './ListHeader'
 import { Todo } from './Todo'
 export const TodoList = () => {
 	const [parent] = useAutoAnimate()
-	const { todoItems, setTodoItems } = useContext(Context)
-	const [storedValues, setValue] = useLocalStorage('todos')
-
-	useEffect(() => {
-		storedValues
-	}, [])
+	const { todoItems } = useContext(Context)
 
 	return (
 		<ul ref={parent}>

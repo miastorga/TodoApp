@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Context } from '../TodoContext'
+import { Context } from '/src/context/TodoContext'
 
 export const useTodo = () => {
 	const randomId = Math.random()
@@ -9,7 +9,6 @@ export const useTodo = () => {
 	const { setTodoItems, todoItems, todo, setTodo } = useContext(Context)
 	const [todoEditing, setTodoEditing] = useState(null)
 	const [editingText, setEditingText] = useState('')
-
 	const addTodoHandler = (e) => {
 		e.preventDefault()
 

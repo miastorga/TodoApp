@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState, createContext } from 'react'
-import { useLocalStorage } from './hooks/useLocalStorage'
+import { useLocalStorage } from '/src/hooks/useLocalStorage'
 
 export const Context = createContext()
 
 export const TodoProvider = ({ children }) => {
-	const [storedValues] = useLocalStorage('todos')
+	const [todoStorage] = useLocalStorage('todos')
 	const [todo, setTodo] = useState('')
-	const [todoItems, setTodoItems] = useState(storedValues)
+	const [todoItems, setTodoItems] = useState(todoStorage)
 
 	return (
 		<Context.Provider

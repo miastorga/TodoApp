@@ -2,19 +2,19 @@ import React from 'react'
 import { useEffect, useContext } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { useTodo } from '../hooks/useTodo'
-import { Context } from '../TodoContext'
+import { Context } from '/src/context/TodoContext'
 
 export const Input = () => {
 	const { todo, setTodo, todoItems } = useContext(Context)
 	const { addTodoHandler } = useTodo()
-	const [storedValue, setValue] = useLocalStorage('todos', [])
+	const [_, setTodoStorage] = useLocalStorage('todos')
 
 	useEffect(() => {
-		setValue(todoItems)
+		setTodoStorage(todoItems)
 	}, [todoItems])
 
 	return (
-		<form onSubmit={addTodoHandler}>
+		<form onSubmit={addTodoHandler} className='form'>
 			<label htmlFor='todo'></label>
 			<input
 				id='todo'

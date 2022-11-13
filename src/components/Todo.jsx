@@ -33,7 +33,9 @@ export const Todo = ({ todo }) => {
 						value={editingText}
 					/>
 				) : (
-					<p className={todo.isCompleted ? 'completed' : ''}>{todo.title}</p>
+					<p className={todo.isCompleted ? 'completed todo-text' : 'todo-text'}>
+						{todo.title}
+					</p>
 				)}
 				<div>
 					{todoEditing === todo.id ? (

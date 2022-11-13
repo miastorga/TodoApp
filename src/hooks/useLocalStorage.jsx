@@ -7,22 +7,14 @@ export const useLocalStorage = (key) => {
 
 	// Inicializar localStorage, si existen item hazle un get, de lo contrario manten el valor inicial
 	const [storedValue, setStoreValue] = useState(() => {
-		try {
-			const todo = localStorage.getItem(key)
-			return todo ? JSON.parse(todo) : INITIAL_VALUE
-		} catch (error) {
-			return INITIAL_VALUE
-		}
+		const todo = localStorage.getItem(key)
+		return todo ? JSON.parse(todo) : INITIAL_VALUE
 	})
 
 	// Agrega al localStorage
 	const setValue = (value) => {
-		try {
-			setStoreValue(value)
-			localStorage.setItem('todos', JSON.stringify(value))
-		} catch (error) {
-			console.log(error)
-		}
+		setStoreValue(value)
+		localStorage.setItem('todos', JSON.stringify(value))
 	}
 	return [storedValue, setValue]
 }
