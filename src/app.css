@@ -57,7 +57,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	max-width: 34rem;
+	width: 34rem;
 }
 .form {
 	width: 100%;
